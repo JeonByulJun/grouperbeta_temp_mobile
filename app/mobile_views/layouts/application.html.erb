@@ -18,7 +18,6 @@
   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.1.js"></script>
   <meta name="google-signin-client_id" content="462449088434-dqsv26kcove38hjrsbjrhe1gkm3f4d1f.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="/assets/bootstrap-slider.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -72,8 +71,8 @@
             <% @str = "워크맵<span class='glyphicon glyphicon-stats' aria-hidden='true'></span>" %>
             <li><%= link_to @str.html_safe, action: "show", controller: "task", team: @team %></li>
             <% end %>
-            <li><%= link_to "View mobile site", url_for(:mobile_site => 1) if mobile_browser? %></li>
             <li><%= link_to "View full site", url_for(:full_site => 1) %></li>
+            <li>mobile_page</li>
             <% if current_page?(:controller => '/chat', :action => 'show')%>
               <li>
               <form id="exit" action="/team/deletemember" method="post">

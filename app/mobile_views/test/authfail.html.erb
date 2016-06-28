@@ -1,0 +1,32 @@
+<style>
+    body
+    {
+        background-image:url('/bgpic.jpg');
+        background-repeat:no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+<div style="text-align:center">
+  <div class="row">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>
+            초대장 인증이 잘못되었습니다. 초대장을 다시 보내보세요.<br>
+            <small>만약 계속 이와 같은 오류가 뜨면 오른쪽 하단의 ?풍선을 눌러 알려주세요.</small>
+          </h3>
+          <form id="regmail" class="form-inline" action="/test/regmail" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+            <div class="field">
+              <input class="" id="user_email" name="email" type="hidden" value="<%=@email%>" required/>
+              <input type="submit" class="btn btn-new" role="button" style="width: 100%;" value="이메일 재전송">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
