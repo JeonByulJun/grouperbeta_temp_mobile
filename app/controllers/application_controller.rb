@@ -52,6 +52,10 @@ class ApplicationController < ActionController::Base
         end
       end
 
+      def original_url
+        base_url + original_fullpath
+      end
+
       def redirect_to_full_site
         redirect_to request.protocol + request.host_with_port.gsub(/^m\./, '') +
 request.url and return
@@ -59,8 +63,9 @@ request.url and return
 
       def redirect_to_mobile_if_applicable
         unless mobile_request? || cookies[:prefer_full_site] || !mobile_browser?
-          redirect_to request.protocol + "m." + request.host_with_port.gsub(/^www\./, '') + request.url and return
-        end
+        redirect_to request.protocol + "m." + "grouperbeta.com" and return
+        #redirect_to request.protocol + 'm.' + request.host_with_port.gsub(/^www\./, '') and return
+	end
       end
 
       def mobile_request?
